@@ -78,9 +78,9 @@ function publish() {
   var b = lats;
   lats = [];
   var struct = {
-   aggregate: { "latency": { "_type": "n", "_value": b } },
-   hostname: { "latency": { "_type": "n", "_value": b } }
+   aggregate: { "latency": { "_type": "n", "_value": b } }
   };
+  struct[hostname] = { "latency": { "_type": "n", "_value": b } };
 
   var options = {
     hostname: 'trap.noit.circonus.net',
