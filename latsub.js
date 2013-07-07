@@ -37,7 +37,8 @@ var tcpdump_args = [
 
 var child = child_process.spawn(tcpdump, tcpdump_args);
 
-child.on('close', function (code) {
+child.on('close', function() { process.exit(-1); });
+child.on('exit', function (code) {
   console.log('child process exited with code ' + code);
   process.exit(-1);
 });
